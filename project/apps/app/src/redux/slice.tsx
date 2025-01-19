@@ -10,14 +10,18 @@ export const pokiListsSlice = createSlice({
   reducers: {
     savePokiLists: (state:any) => {
       return {
-        ...state,
         pokiLists: state
       }
     },
+    removePokiLists: (state:any) => {
+        return {
+          pokiLists: state.pokiLists.filter((list:any) => list.name !== state.name)
+        }
+      },
   },
 })
 
 // Action creators are generated for each case reducer function
-export const { savePokiLists } = pokiListsSlice.actions
+export const { savePokiLists, removePokiLists } = pokiListsSlice.actions
 
 export default pokiListsSlice.reducer
