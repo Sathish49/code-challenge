@@ -28,9 +28,11 @@ const App = () => {
     <>
      <h1>Pokemon list:</h1>
      {
-      pokeLists && pokeLists.length > 0 && pokeLists.map((list):any => {
-        <List pokeList={list}/>
-      })
+      <div className="grid-container">
+        {pokeLists && pokeLists.length > 0 && pokeLists.map((list):any => {
+          <List pokeList={list}/>
+        })}
+      </div>
      }
     </>
   )
