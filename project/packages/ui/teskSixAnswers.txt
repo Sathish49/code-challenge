@@ -1,0 +1,17 @@
+1) explain the use of useEffect hook in React Question?
+
+Ans : useEffect is Used to to perform any side effect in our Functional component .
+With the help of useEffect hook we will inform react that the component require something
+ to be done after the rendering of the component or the change in the State Variable.
+
+2) What is A High Order Component?
+
+The Higher Order Component (HOC) pattern is a design pattern commonly used in React for code reuse
+ and abstraction. It's a way to share behavior between React components without using inheritance, 
+ often used for cross-cutting concerns like handling authentication, managing state, or accessing data from external sources.
+
+3) What use cases would a HOC be usefull? 
+
+HOCs can wrap components with error-handling logic, catching and managing errors that occur within the wrapped components.
+HOCs are useful when you want to conditionally render components.
+For handling user authentication, a HOC can be employed to check if a user is authenticated before rendering a specific component, ensuring protected routes.
