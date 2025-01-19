@@ -1,13 +1,11 @@
-// import { List } from 'ui'
+import { List } from '../../../packages/ui'
 import axios from 'axios'
 import React, { useEffect, useState } from 'react'
+import {MyPokiLists} from '../../../packages/ui/interfaces'
 
 const api = "https://pokeapi.co/api/v2/pokemon?limit=151"
 
-interface MyPokiLists {
-  name: string;
-  url: string;
-}
+
 
 const App = () => {
   const [pokeLists, setPokiLists] = useState<MyPokiLists[]>([])
@@ -27,7 +25,14 @@ const App = () => {
   },[])
 
   return (
-    <h1>Pokemon list:</h1>
+    <>
+     <h1>Pokemon list:</h1>
+     {
+      pokeLists && pokeLists.length > 0 && pokeLists.map((list):any => {
+        <List pokeList={list}/>
+      })
+     }
+    </>
   )
 }
 
