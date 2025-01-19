@@ -2,6 +2,8 @@ import { List } from '../../../packages/ui'
 import axios from 'axios'
 import React, { useEffect, useState } from 'react'
 import {MyPokiLists} from '../../../packages/ui/interfaces'
+import { useDispatch } from 'react-redux'
+import { savePokiLists } from './redux/slice'
 
 const api = "https://pokeapi.co/api/v2/pokemon?limit=151"
 
@@ -9,6 +11,7 @@ const api = "https://pokeapi.co/api/v2/pokemon?limit=151"
 
 const App = () => {
   const [pokeLists, setPokiLists] = useState<MyPokiLists[]>([])
+  const dispatch = useDispatch()
 
   // 1)How did you manage to fetch the list and what tool did you use?
   // Ans: I have user Third party library called axios to fetch pokelists from API
@@ -21,6 +24,7 @@ const App = () => {
   useEffect(() => {
       axios.get("https://pokeapi.co/api/v2/pokemon?limit=151").then(res => {
         setPokiLists(res.data.results)
+        dispatch(savePokiLists(res.data.results))
       })
   },[])
 
